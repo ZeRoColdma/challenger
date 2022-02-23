@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:    
+  app:
+    build: .
+    container_name: challenger_agap2
+    ports:
+      - 3000:3000
