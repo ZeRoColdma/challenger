@@ -5,6 +5,7 @@ interface IRequest {
     original: string;
   };
   summary: string;
+  number: number;
 }
 
-export type { IRequest };
+export default IRequest;
