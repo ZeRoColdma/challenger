@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 
 import "./index.css";
+
 import { defaultUrlImage } from "../../utils/defaultImage";
 import IRequest from "../../interfaces/IRequest";
 
@@ -47,13 +48,22 @@ export default function Home(props: number) {
 
   return (
     <div>
-      <h1>Episodes List</h1>
+      <div className="column is-full featured_wrapper p-0">
+        <img
+          src="https://airwallpaper.com/wp-content/uploads/wall004/Powerpuff-Girls-Wallpaper-for-Desktop.jpg"
+          className="featured"
+        />
+        <div className="title_wrapper">
+          <span className="has-text-white">Trending Today</span>
+          <h1 className="title is-1 has-text-white">Power Puff Girls</h1>
+        </div>
+      </div>
       <div className="container-fluid">
-        <Container>
+        <Container fluid>
           <Row>
             {showsList.map((item) => {
               return (
-                <Col md="3" style={{ margin: "15px" }} key={item.id}>
+                <Col md="2" style={{ margin: "15px" }} key={item.id}>
                   <CardGroup>
                     <Card style={{ margin: "10px" }}>
                       <CardImg
@@ -62,13 +72,14 @@ export default function Home(props: number) {
                         top
                         width="100%"
                       />
-                      <CardBody>
+                      <CardBody style={{ height: "15vh" }}>
                         <CardTitle tag="h5">{item.name}</CardTitle>
                         <CardText>
                           {item.summary || "Texto Indisponivel"}
                         </CardText>
                       </CardBody>
                       <Button
+                        className="buttonEpisode"
                         onClick={(event) => {
                           handleEpisodeDetail(event, item.number);
                         }}
