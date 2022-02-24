@@ -1,0 +1,9 @@
+.homePage {
+  background-image: url("https://wallpaperboat.com/wp-content/uploads/2020/06/05/44021/powerpuff-girls-05.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.contentCards {
+  margin: 15px;
+}
