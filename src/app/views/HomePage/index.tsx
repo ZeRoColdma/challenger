@@ -9,7 +9,6 @@ import {
   CardImg,
   CardBody,
   CardTitle,
-  CardText,
   Button,
   Row,
   Col,
@@ -23,7 +22,6 @@ import IEpisodeDetail from "../../interfaces/IDetailsShow";
 
 export default function Home(props: number) {
   const [showsList, setShowsList] = useState<IRequest[]>([]);
-  const [detailsShow, setDetailsShow] = useState<IEpisodeDetail[]>([]);
   const [showsDetailsTitle, setShowsDetailsTitle] = useState<IEpisodeDetail>();
   const [showsDetailsDescription, setShowsDetailsDescription] =
     useState<IEpisodeDetail>();
@@ -39,7 +37,6 @@ export default function Home(props: number) {
   async function getShowInformations() {
     const showDetails = await api.get("/shows/6771");
     const contentDetails = showDetails.data;
-    setDetailsShow(contentDetails);
     setShowsDetailsTitle(contentDetails.name);
     setShowsDetailsDescription(contentDetails.summary);
   }
