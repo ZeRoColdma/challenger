@@ -44,7 +44,7 @@ export default function EpisodeDetail(props: any) {
             </div>
             <div className="movie_desc">
               <p className="text">
-                {dataIndex?.summary || "Texto Indisponivel"}
+                {dataIndex?.summary || "Text Not Available"}
               </p>
             </div>
           </div>
