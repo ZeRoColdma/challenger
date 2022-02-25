@@ -15,10 +15,9 @@ import {
   Col,
   Container,
 } from "reactstrap";
-
 import "./index.css";
 
-import { defaultUrlImage } from "../../utils/defaultImage";
+import { defaultUrlImage, headerImage } from "../../utils/defaultImage";
 import IRequest from "../../interfaces/IRequest";
 
 export default function Home(props: number) {
@@ -40,6 +39,7 @@ export default function Home(props: number) {
       `/shows/6771/episodebynumber?season=1&number=${episodes}`,
     );
     const content = response.data;
+    console.log(content);
     history.push({
       pathname: `/episode/${episodes}`,
       state: { idEpisode: episodes },
@@ -49,10 +49,7 @@ export default function Home(props: number) {
   return (
     <div>
       <div className="column is-full featured_wrapper p-0">
-        <img
-          src="https://airwallpaper.com/wp-content/uploads/wall004/Powerpuff-Girls-Wallpaper-for-Desktop.jpg"
-          className="featured"
-        />
+        <img src={headerImage} className="featured" alt="" />
         <div className="title_wrapper">
           <span className="has-text-white">Trending Today</span>
           <h1 className="title is-1 has-text-white">Power Puff Girls</h1>

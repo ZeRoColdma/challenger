@@ -1,21 +1,14 @@
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 
-import {
-  CardGroup,
-  Card,
-  CardImg,
-  CardBody,
-  CardTitle,
-  CardText,
-  Button,
-  Row,
-  Col,
-  Container,
-} from "reactstrap";
-
 import IEpisode from "../../interfaces/IEpisodes";
-import { defaultUrlImage } from "../../utils/defaultImage";
+import {
+  defaultUrlImage,
+  headerImage,
+  powerPuffGildImage,
+} from "../../utils/defaultImage";
+
+import "./index.scss";
 
 export default function EpisodeDetail(props: any) {
   let [dataIndex, setDataIndex] = useState<IEpisode>();
@@ -35,39 +28,34 @@ export default function EpisodeDetail(props: any) {
   return (
     <div>
       <div className="column is-full featured_wrapper p-0">
-        <img
-          src="https://airwallpaper.com/wp-content/uploads/wall004/Powerpuff-Girls-Wallpaper-for-Desktop.jpg"
-          className="featured"
-        />
+        <img src={headerImage} className="featured" />
         <div className="title_wrapper">
           <span className="has-text-white">Trending Today</span>
           <h1 className="title is-1 has-text-white">Power Puff Girls</h1>
         </div>
       </div>
       <div className="container-fluid">
-        <Container>
-          <Row>
-            <Col md="2">
-              <CardGroup>
-                <Card>
-                  <CardImg
-                    alt="Card image cap"
-                    src={dataIndex?.image.original || defaultUrlImage}
-                    top
-                    width="100%"
-                  />
-                  <CardBody>
-                    <CardTitle tag="h5">{dataIndex?.name}</CardTitle>
-                    <CardText>
-                      {dataIndex?.summary || "Texto Indisponivel"}
-                    </CardText>
-                  </CardBody>
-                </Card>
-              </CardGroup>
-            </Col>
-            );
-          </Row>
-        </Container>
+        <div className="movie_card" id="bright">
+          <div className="info_section">
+            <div className="movie_header">
+              <img className="locandina" src={powerPuffGildImage} />
+              <h1>{dataIndex?.name}</h1>
+              <p className="type">Cartoon</p>
+            </div>
+            <div className="movie_desc">
+              <p className="text">
+                {dataIndex?.summary || "Texto Indisponivel"}
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <img
+              className="blur_back"
+              src={dataIndex?.image.original || defaultUrlImage}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
