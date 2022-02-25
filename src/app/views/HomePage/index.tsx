@@ -27,8 +27,7 @@ export default function Home(props: number) {
   const [showsDetailsTitle, setShowsDetailsTitle] = useState<IEpisodeDetail>();
   const [showsDetailsDescription, setShowsDetailsDescription] =
     useState<IEpisodeDetail>();
-  const [showsDetailsCoverImage, setShowsDetailsCoverImage] =
-    useState<IEpisodeDetail>();
+
   const history = useHistory();
 
   async function getListItens() {
@@ -41,10 +40,8 @@ export default function Home(props: number) {
     const showDetails = await api.get("/shows/6771");
     const contentDetails = showDetails.data;
     setDetailsShow(contentDetails);
-
     setShowsDetailsTitle(contentDetails.name);
     setShowsDetailsDescription(contentDetails.summary);
-    setShowsDetailsCoverImage(contentDetails.image.original);
   }
 
   async function handleEpisodeDetail(event: any, episodes: number) {
@@ -70,7 +67,6 @@ export default function Home(props: number) {
       <div className="column is-full featured_wrapper p-0">
         <img src={headerImage} className="featured" alt="" />
         <div className="title_wrapper">
-          <span className="has-text-white">Trending Today</span>
           <h1 className="title is-1 has-text-white">{showsDetailsTitle}</h1>
           <h4 className="title is-1 has-text-white">
             {showsDetailsDescription}
