@@ -13,18 +13,7 @@ html {
 .container {
   padding-bottom: 3rem;
 }
-img {
-  -webkit-box-reflect: below 5px
-    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-.container img:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
+
 .last {
   margin-top: 6.5rem;
 }
@@ -81,7 +70,7 @@ button {
 }
 
 .buttonEpisode {
-  background: #f40612 !important;
+  background: #f8000c !important;
   color: #fff !important;
   font-size: 18px;
   padding: 0.5rem 3rem;

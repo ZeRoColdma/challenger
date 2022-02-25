@@ -10,18 +10,38 @@ import {
 
 import "./index.scss";
 
+import IEpisodeDetail from "../../interfaces/IDetailsShow";
+
 export default function EpisodeDetail(props: any) {
   let [dataIndex, setDataIndex] = useState<IEpisode>();
+
+  const [showsDetailsTitle, setShowsDetailsTitle] = useState<IEpisodeDetail>();
+  const [showsDetailsDescription, setShowsDetailsDescription] =
+    useState<IEpisodeDetail>();
+  const [showsDetailsCoverImage, setShowsDetailsCoverImage] =
+    useState<IEpisodeDetail>();
+
   let dataEpisode = props.location.state.idEpisode;
 
+  async function getListItens() {
+    const response = await api.get(
+      `/shows/6771/episodebynumber?season=1&number=${dataEpisode}`,
+    );
+    const content = response.data;
+    setDataIndex(content);
+  }
+
+  async function getShowInformations() {
+    const showDetails = await api.get("/shows/6771");
+    const contentDetails = showDetails.data;
+
+    setShowsDetailsTitle(contentDetails.name);
+    setShowsDetailsDescription(contentDetails.summary);
+    setShowsDetailsCoverImage(contentDetails.image.original);
+  }
+
   useEffect(() => {
-    async function getListItens() {
-      const response = await api.get(
-        `/shows/6771/episodebynumber?season=1&number=${dataEpisode}`,
-      );
-      const content = response.data;
-      setDataIndex(content);
-    }
+    getShowInformations();
     getListItens();
   }, [dataEpisode]);
 
@@ -30,8 +50,10 @@ export default function EpisodeDetail(props: any) {
       <div className="column is-full featured_wrapper p-0">
         <img src={headerImage} className="featured" alt="" />
         <div className="title_wrapper">
-          <span className="has-text-white">Trending Today</span>
-          <h1 className="title is-1 has-text-white">Power Puff Girls</h1>
+          <h1 className="title is-1 has-text-white">{showsDetailsTitle}</h1>
+          <h4 className="title is-1 has-text-white">
+            {showsDetailsDescription}
+          </h4>
         </div>
       </div>
       <div className="container-fluid">
