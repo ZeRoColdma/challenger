@@ -28,7 +28,7 @@ export default function EpisodeDetail(props: any) {
   return (
     <div>
       <div className="column is-full featured_wrapper p-0">
-        <img src={headerImage} className="featured" />
+        <img src={headerImage} className="featured" alt="" />
         <div className="title_wrapper">
           <span className="has-text-white">Trending Today</span>
           <h1 className="title is-1 has-text-white">Power Puff Girls</h1>
@@ -38,7 +38,7 @@ export default function EpisodeDetail(props: any) {
         <div className="movie_card" id="bright">
           <div className="info_section">
             <div className="movie_header">
-              <img className="locandina" src={powerPuffGildImage} />
+              <img className="locandina" src={powerPuffGildImage} alt="" />
               <h1>{dataIndex?.name}</h1>
               <p className="type">Cartoon</p>
             </div>
@@ -53,6 +53,7 @@ export default function EpisodeDetail(props: any) {
             <img
               className="blur_back"
               src={dataIndex?.image.original || defaultUrlImage}
+              alt=""
             />
           </div>
         </div>
