@@ -6,7 +6,7 @@
 
 * docker-compose up
 
-# Or
+## Or
 
 * npm start
 
