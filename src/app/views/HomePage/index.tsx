@@ -16,9 +16,11 @@ import {
 } from "reactstrap";
 import "./index.css";
 
-import { defaultUrlImage, headerImage } from "../../utils/defaultImage";
+import { defaultUrlImage } from "../../utils/defaultImage";
 import IRequest from "../../interfaces/IRequest";
 import IEpisodeDetail from "../../interfaces/IDetailsShow";
+
+import Header from "../../components/header/index";
 
 export default function Home(props: number) {
   const [showsList, setShowsList] = useState<IRequest[]>([]);
@@ -61,15 +63,7 @@ export default function Home(props: number) {
 
   return (
     <div>
-      <div className="column is-full featured_wrapper p-0">
-        <img src={headerImage} className="featured" alt="" />
-        <div className="title_wrapper">
-          <h1 className="title is-1 has-text-white">{showsDetailsTitle}</h1>
-          <h4 className="title is-1 has-text-white">
-            {showsDetailsDescription}
-          </h4>
-        </div>
-      </div>
+      <Header />
       <div className="container-fluid">
         <Container fluid>
           <Row>

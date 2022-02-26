@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import api from "../../services/api";
 
 import IEpisode from "../../interfaces/IEpisodes";
@@ -9,10 +10,14 @@ import {
 } from "../../utils/defaultImage";
 
 import "./index.scss";
+import Header from "../../components/header/index";
 
 import IEpisodeDetail from "../../interfaces/IDetailsShow";
+import { Button } from "reactstrap";
 
 export default function EpisodeDetail(props: any) {
+  const { goBack } = useHistory();
+
   let [dataIndex, setDataIndex] = useState<IEpisode>();
 
   const [showsDetailsTitle, setShowsDetailsTitle] = useState<IEpisodeDetail>();
@@ -47,16 +52,12 @@ export default function EpisodeDetail(props: any) {
 
   return (
     <div>
-      <div className="column is-full featured_wrapper p-0">
-        <img src={headerImage} className="featured" alt="" />
-        <div className="title_wrapper">
-          <h1 className="title is-1 has-text-white">{showsDetailsTitle}</h1>
-          <h4 className="title is-1 has-text-white">
-            {showsDetailsDescription}
-          </h4>
-        </div>
-      </div>
+      <Header />
+
       <div className="container-fluid">
+        <Button style={{ marginTop: "15px" }} onClick={goBack}>
+          Go Back
+        </Button>
         <div className="movie_card" id="bright">
           <div className="info_section">
             <div className="movie_header">
