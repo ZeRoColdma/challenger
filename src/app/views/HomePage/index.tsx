@@ -78,7 +78,7 @@ export default function Home(props: number) {
                         top
                         width="100%"
                       />
-                      <CardBody className="cardWaper">
+                      <CardBody className="card-waper ajust-size">
                         <CardTitle tag="h5">{item.name}</CardTitle>
                       </CardBody>
                       <Button
