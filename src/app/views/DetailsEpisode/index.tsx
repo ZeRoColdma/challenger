@@ -53,8 +53,7 @@ export default function EpisodeDetail(props: any) {
   return (
     <div>
       <Header />
-
-      <div className="container-fluid">
+      <div className="margin-container-card">
         <Button style={{ marginTop: "15px" }} onClick={goBack}>
           Go Back
         </Button>
