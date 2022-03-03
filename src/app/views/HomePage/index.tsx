@@ -14,7 +14,7 @@ import {
   Col,
   Container,
 } from "reactstrap";
-import "./index.css";
+import "./index.scss";
 
 import { defaultUrlImage } from "../../utils/defaultImage";
 import IRequest from "../../interfaces/IRequest";
@@ -66,19 +66,19 @@ export default function Home(props: number) {
       <Header />
       <div className="container-fluid">
         <Container fluid>
-          <Row>
+          <Row className="centerItens">
             {showsList.map((item) => {
               return (
                 <Col md="2" style={{ margin: "15px" }} key={item.id}>
                   <CardGroup>
-                    <Card style={{ margin: "10px" }}>
+                    <Card>
                       <CardImg
                         alt="Card image cap"
                         src={item.image?.original || defaultUrlImage}
                         top
                         width="100%"
                       />
-                      <CardBody>
+                      <CardBody className="cardWaper">
                         <CardTitle tag="h5">{item.name}</CardTitle>
                       </CardBody>
                       <Button
